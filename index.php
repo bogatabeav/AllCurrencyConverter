@@ -5,7 +5,7 @@ include("header.php");
 <p>
 <?php
 include("lib/rateUpdate.php");
-phpingo();
+phpinfo();
 //include("Connections/connect.php");
 //include("Connections/close.php");
 ?>
