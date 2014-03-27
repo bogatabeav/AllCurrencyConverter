@@ -3,9 +3,8 @@ include("header.php");
 ?>
 
 <p>
+Content Goes Here!
 <?php
-//include("lib/rateUpdate.php");
-phpinfo();
 //include("Connections/connect.php");
 //include("Connections/close.php");
 ?>
