@@ -4,6 +4,6 @@ To Connect to Server
 
 2. Add database information to the following lines:
 
-	$database_currency = "your data base name";
-  	$username_currency = "your database username";
-  	$password_currency = "your database password";
+	$db = "your data base name";
+  	$user = "your database username";
+  	$pass = "your database password";
