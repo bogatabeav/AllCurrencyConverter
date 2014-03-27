@@ -1,9 +1,7 @@
 <?php 
 
-include_once("config.php");
+include("config.php");
 
-if(!$currency) {
-	die('Could not connect: ' . mysql_error());
-}
+$con = mysqli_connect($host, $user, $pass, $db) or die("Some error occurred during connection " . mysqli_error($con));
 
 ?>
