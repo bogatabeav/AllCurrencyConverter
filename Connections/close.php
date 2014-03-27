@@ -1,5 +1,5 @@
 <?php
 
-mysqli_close($currency);
+mysqli_close($con);
 
 ?>
