@@ -1,4 +1,8 @@
 <?php 
+/*
+  connect.php
+  a simple script to open a MySQL connection
+*/
 
 include("config.php");
 
