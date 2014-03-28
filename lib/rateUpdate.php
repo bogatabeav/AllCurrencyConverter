@@ -22,7 +22,7 @@ foreach ($xml->results->rate as $rate) {
                                       
 	if (strpos($name,'=') === false && $num > 0) {
 		
-    		$sql = "INSERT INTO rates (rate_name, rate_num, rate_ask, rate_bid) VALUES ('".$name."',".$num.", ".$ask.", ".$bid.")";
+    		$sql = "INSERT INTO rates (rate_code, rate_num, rate_ask, rate_bid) VALUES ('".$name."',".$num.", ".$ask.", ".$bid.")";
 		$query = mysqli_query($con, $sql);
 
 		if(!$query) {
