@@ -51,9 +51,10 @@ function getCurrency($con, $code)
 */
 function getCurrencies($con)
 {
-	$array[] = array();
+	
 	$sql = "SELECT * FROM currency ORDER BY curr_id ASC";
 	$result = mysqli_query($con, $sql);
+	$array[] = array();
 	$count = 0;
 	
 	while($row = mysqli_fetch_row($result)) {
