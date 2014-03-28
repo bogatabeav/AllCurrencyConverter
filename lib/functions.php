@@ -14,11 +14,11 @@ function getRate($con, $code)
 
 	$sql = "SELECT * FROM rates WHERE rate_code='".$code."' ORDER BY rate_id ASC LIMIT 1";
 	$result = mysqli_query($con, $sql);
-	$row = mysqli_fetch_row($result);
+	$array = mysqli_fetch_row($result);
 
 	mysqli_free_result($result);
 	
-	return $row;
+	return $array;
 }
 
 
@@ -35,11 +35,11 @@ function getCurrency($con, $code)
 
 	$sql = "SELECT * FROM currency WHERE curr_code='".$code."'";
 	$result =  mysqli_query($con, $sql);
-	$row = mysqli_fetch_row($result);
+	$array = mysqli_fetch_row($result);
 	
 	mysqli_free_result($result);
 	
-	return $row;
+	return $array;
 }
 
 /* returns 2D array of all currency reference information
