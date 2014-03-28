@@ -10,7 +10,11 @@ $url ="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.fina
 
 $xml = simplexml_load_file($url) or die("feed not loading");
 
-include("./Connections/connect.php");
+$host = "localhost";
+$db = "allcurre_cmsc495";
+$user = "allcurre_ateam";
+$pass = "cmsc495account";
+$con = mysqli_connect($host, $user, $pass, $db) or die("Some error occurred during connection " . mysqli_error($con));
 
 foreach ($xml->results->rate as $rate) {
 	
@@ -22,7 +26,7 @@ foreach ($xml->results->rate as $rate) {
                                       
 	if (strpos($name,'=') === false && $num > 0) {
 		
-    		$sql = "INSERT INTO rates (rate_code, rate_num, rate_ask, rate_bid) VALUES ('".$name."',".$num.", ".$ask.", ".$bid.")";
+    	$sql = "INSERT INTO rates (rate_code, rate_num, rate_ask, rate_bid) VALUES ('".$name."',".$num.", ".$ask.", ".$bid.")";
 		$query = mysqli_query($con, $sql);
 
 		if(!$query) {
@@ -31,6 +35,6 @@ foreach ($xml->results->rate as $rate) {
 	}
 }
 
-include("./Connections/close.php");
+mysqli_close($con);
 
 ?>
