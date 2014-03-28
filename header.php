@@ -24,8 +24,9 @@
   
 <div id="nav">
   	<ul id="nav">
-    	<li><a href="#">Main</a></li>
-    	<li><a href="#">Timeline</a></li>
+    	<li><a href="index.php">Converter</a></li>
+    	<li><a href="timeline.php">Timeline</a></li>
+        <li><a href="test.php">Logic Test Page</a></li>
 	</ul>
 </div>
 
