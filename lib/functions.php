@@ -11,10 +11,35 @@
 */
 function getRate($con, $code)
 {
-
-	$sql = "SELECT * FROM rates WHERE rate_code='".$code."' ORDER BY rate_id ASC LIMIT 1";
+	$sql = "SELECT * FROM rates WHERE rate_code='".$code."' ORDER BY rate_id DESC LIMIT 1";
 	$result = mysqli_query($con, $sql);
 	$array = mysqli_fetch_row($result);
+
+	mysqli_free_result($result);
+	
+	return $array;
+}
+
+/* Returns 2D array of last X amount of currency rates from input currency code
+ * Input: connection variable $con, currency code variable $code, and amount of records in history
+ * Output: Array of specific rate in format below 
+ * $var[n][1] = rate_code (shared currency code for all databases)
+ * $var[n][2] = rate_num (Current Rate of the currency)
+ * $var[n][3] = rate_time (timestamp of most recent update)
+ * $var[n][4] = rate_ask (asking price of the currency)
+ * $var[n][5] = rate_bid (selling proce of the currency)
+*/
+function getNumRates($con, $code, $limit)
+{
+	$array[] = array();
+	$sql = "SELECT * FROM rates WHERE rate_code='".$code."' ORDER BY rate_id DESC LIMIT ".$limit."";
+	$result = mysqli_query($con, $sql);
+	$count = 0;
+	
+	while($row = mysqli_fetch_row($result)) {
+		$array[$count]=array($row[0], $row[1], $row[2], $row[3]);
+		$count++;
+	}
 
 	mysqli_free_result($result);
 	
@@ -49,12 +74,11 @@ function getCurrency($con, $code)
  * $var[n][2] = curr_name (String name of the currency)
  * $var[n][3] = curr_countries (String of countries that use the currency)
 */
-function getCurrencies($con)
+function getAllCurrencies($con)
 {
-	
+	$array[] = array();
 	$sql = "SELECT * FROM currency ORDER BY curr_id ASC";
 	$result = mysqli_query($con, $sql);
-	$array[] = array();
 	$count = 0;
 	
 	while($row = mysqli_fetch_row($result)) {
