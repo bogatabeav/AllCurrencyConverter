@@ -34,6 +34,7 @@ img, object, embed, video {
 	width: 87.36%;
 	padding-left: 1.82%;
 	padding-right: 1.82%;
+
 }
 #header {
 	clear: both;
@@ -41,7 +42,7 @@ img, object, embed, video {
 	margin-left: 0;
 	width: 100%;
 	display: block;
-	background-color: #F00;
+
 }
 #nav {
 clear: both;
@@ -49,7 +50,7 @@ clear: both;
 	margin-left: 0;
 	width: 100%;
 	display: block;
-	background-color:#0F0;
+
 }
 #nav ul {
 	width: 99.85%;
@@ -75,7 +76,7 @@ clear: both;
 	margin-left: 0;
 	width: 100%;
 	display: block;
-	background-color: #FF0;
+
 }
 #footer {
 	clear: both;
@@ -83,7 +84,7 @@ clear: both;
 	margin-left: 0;
 	width: 100%;
 	display: block;
-	background-color:#F0F;
+
 }
 
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */

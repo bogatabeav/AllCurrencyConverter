@@ -1,11 +1,30 @@
 /*rules for the plot target div.  These will be cascaded down to all plot elements according to css rules*/
+
+
 .jqplot-target {
     position: relative;
-    color: #666666;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    color: #000;
     font-size: 1em;
-/*    height: 300px;
-    width: 400px;*/
+	height: 200px;
+    width: 95%;
+}
+
+@media only screen and (min-width: 481px) {
+
+.jqplot-target {
+	height: 200px;
+
+}
+
+}
+
+@media only screen and (min-width: 769px) {
+
+.jqplot-target {
+    height: 400px;
+
+}
+
 }
 
 /*rules applied to all axes*/
