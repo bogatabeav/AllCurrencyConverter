@@ -29,18 +29,17 @@ function getRate($con, $code)
  * $var[n][4] = rate_ask (asking price of the currency)
  * $var[n][5] = rate_bid (selling proce of the currency)
 */
-function getNumRates($con, $code, $limit)
+function getNumRates($con, $code, $startDate)
 {
 	$array[] = array();
-	$sql = "SELECT * FROM rates WHERE rate_code='".$code."' ORDER BY rate_id DESC LIMIT ".$limit."";
+	$sql = "SELECT * FROM rates WHERE rate_code='".$code."' AND rate_time >='" .date("Y-m-d H:i:s", $startDate). "' ORDER BY rate_time DESC";
 	$result = mysqli_query($con, $sql);
 	$count = 0;
 	
 	while($row = mysqli_fetch_row($result)) {
-		$array[$count]=array($row[0], $row[1], $row[2], $row[3]);
+		$array[$count]=array($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]);
 		$count++;
 	}
-
 	mysqli_free_result($result);
 	
 	return $array;
