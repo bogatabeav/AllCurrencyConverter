@@ -76,7 +76,7 @@ foreach($history as $value) {
 } 
 echo "]";?>;
 
-$.jqplot('chartdiv',  [history],
+var plot1 = $.jqplot('chartdiv',  [history],
 {<?php 
 if($_POST['timePeriod']>0) {
 	echo "title: {text: '".$currency[1]." against US Dollar', show: true},";}
@@ -132,6 +132,10 @@ else {
 		shadow: false, 
 		markerOptions: {size: 1}
 	}]
+});
+
+$(window).resize(function() {
+	plot1.replot({resetAxes:true});
 });
 </script>
 </br>
