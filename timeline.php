@@ -49,7 +49,7 @@ foreach($currencies as $value) {
 <?php
 // variables for charting x-axis limits
 $endDate = date_create();
-$endDate = date_timestamp_get($endDate);
+$endDate = floor(date_timestamp_get($endDate)/3600)*3600;
 $startDate = $endDate - ($_POST['timePeriod']*3600);
 
 if(!$_POST['timePeriod']>0) {
