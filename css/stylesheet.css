@@ -34,7 +34,6 @@ img, object, embed, video {
 	width: 87.36%;
 	padding-left: 1.82%;
 	padding-right: 1.82%;
-
 }
 #header {
 	clear: both;
@@ -42,7 +41,6 @@ img, object, embed, video {
 	margin-left: 0;
 	width: 100%;
 	display: block;
-
 }
 #nav {
 clear: both;
@@ -76,7 +74,6 @@ clear: both;
 	margin-left: 0;
 	width: 100%;
 	display: block;
-
 }
 #footer {
 	clear: both;
@@ -84,7 +81,6 @@ clear: both;
 	margin-left: 0;
 	width: 100%;
 	display: block;
-
 }
 
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
@@ -102,7 +98,6 @@ clear: both;
 	width: 100%;
 	display: inline;
 }
-
 #content {
 	clear: both;
 	float: left;
@@ -136,7 +131,6 @@ clear: both;
 	width: 100%;
 	display: block;
 }
-
 #content {
 	clear: both;
 	float: left;

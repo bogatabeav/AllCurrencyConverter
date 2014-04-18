@@ -1,4 +1,10 @@
 <?php 
+/*
+  timeline.php
+  Timeline function designed desktop an tablet viewing.
+  INPUT:  User selects currency from dropdown and timeframe radio button.
+  OUTPUT:  Displays chart of currency rate over selected time period
+*/
 include("header.php");
 include("Connections/connect.php");
 include("lib/functions.php");
@@ -8,39 +14,40 @@ include("lib/functions.php");
 
 <h1>Timeline Chart</h1>
 <form method="post" action="timeline.php" >
-  <label for="currChart">Select Currency</label></br>
-  <select name="currChart" id="currChart">
-  
+	<fieldset>
+  		<label for="currChart">Select Currency</label></br>
+  		<select name="currChart" id="currChart">
 <?php
 $currencies = getAllCurrencies($con);
 
 foreach($currencies as $value) {
 	if($_POST['currChart']==$value[1]) {
-		echo "<option value=\"" .$value[1]. "\" selected>" .$value[2]. " (" .$value[1]. ")</option>";
+		echo "\t\t\t<option value=\"" .$value[1]. "\" selected>" .$value[2]. " (" .$value[1]. ")</option>\n";
 	} else {
-		echo "<option value=\"" .$value[1]. "\">" . $value[2] . " (" .$value[1]. ")</option>";
+		echo "\t\t\t<option value=\"" .$value[1]. "\">" . $value[2] . " (" .$value[1]. ")</option>\n";
 	}	
 }
 ?>
+  		</select>
+  		</br>
+        </br>
+  		<label for="timePeriod">Select Time Period</label></br>
+  		<input type="radio" name="timePeriod" value="24" <? if($_POST['timePeriod'] == 24) {echo " checked";}?> />1 Day
+  		<input type="radio" name="timePeriod" value="48"<? if($_POST['timePeriod'] == 48) {echo " checked";}?> />2 Days
+  		<input type="radio" name="timePeriod" value="168"<? if($_POST['timePeriod'] == 168) {echo " checked";}?> />1 Week
+  		<input type="radio" name="timePeriod" value="336"<? if($_POST['timePeriod'] == 336) {echo " checked";}?> />2 Weeks 
+  		<input type="radio" name="timePeriod" value="720"<? if($_POST['timePeriod'] == 720) {echo " checked";}?> />1 Month
+  		</br>
+        </br>
+  		<input type="submit" value="Submit" />
+	</fieldset>
+</form>
+</br>
 
-  </select>
-  </br></br>
-  <label for="timePeriod">Select Time Period</label></br>
-  <input type="radio" name="timePeriod" value="24" <? if($_POST['timePeriod'] == 24) {echo " checked";}?> />
-  1 Day
-  <input type="radio" name="timePeriod" value="48"<? if($_POST['timePeriod'] == 48) {echo " checked";}?> />
-  2 Days
-  <input type="radio" name="timePeriod" value="168"<? if($_POST['timePeriod'] == 168) {echo " checked";}?> />
-  1 Week
-  <input type="radio" name="timePeriod" value="336"<? if($_POST['timePeriod'] == 336) {echo " checked";}?> />
-  2 Weeks 
-  <input type="radio" name="timePeriod" value="720"<? if($_POST['timePeriod'] == 720) {echo " checked";}?> />
-  1 Month</br></br>
-  <input type="submit" value="Submit" />
-</form></br>
 <div id="chartdiv" ></div>
 
 <?php
+// variables for charting x-axis limits
 $endDate = date_create();
 $endDate = date_timestamp_get($endDate);
 $startDate = $endDate - ($_POST['timePeriod']*3600);
@@ -62,8 +69,14 @@ if(!$_POST['timePeriod']>0) {
 <script type="text/javascript" src="scripts/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
 <script type="text/javascript" src="scripts/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
 <script type="text/javascript" src="scripts/plugins/jqplot.dateAxisRenderer.min.js"></script>
-<script>
 
+<script>
+/*
+ * There should be no CSS styling of the jqPlot script below.  
+ * All styling is done with the API.  Options are found at
+ * http://www.jqplot.com/docs/files/jqPlotOptions-txt.html
+ * Be forewarned, thar be dragons here
+*/
 var history = <? 
 echo "[";
 $count = count($history)-1;
@@ -91,21 +104,18 @@ if($_POST['timePeriod']>0) {
 	echo "title: {text: '', show: true,},";
 }?>
 	axesDefaults: {
-
-        tickOptions: {
-          angle: -30,
-          fontSize: '8pt'
-        }
-    },
-  	axes:{
-	  	xaxis:{
-
+  		tickOptions: {
+ 		angle: -30,
+ 		fontSize: '8pt'
+    	}
+	},
+	axes:{
+		xaxis:{
 			labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
 			min:'<? echo date("Y-m-d g:iA", $startDate); ?>', 
 			max:'<? echo date("Y-m-d g:iA", $endDate); ?>',
-
 			renderer:$.jqplot.DateAxisRenderer, 
-        	tickOptions:{
+			tickOptions:{
 				formatString:'%#d-%b-%y\n%#I:%M %p',
 			}        
 		},
@@ -115,24 +125,44 @@ if($_POST['timePeriod']>0) {
 			min:<? echo $min < $max ? $min : ($min - $min/10); ?>, 
 			max:<? echo $min < $max ? $max : ($max + $max/10); ?>,
 			tickOptions:{
-            	formatString:'%.3f'
+       			formatString:'%.3f'
 			}
 		}
-  	},
-	grid: {shadow: false, background: '#ffffff', borderWidth: 1.0},
-  	highlighter: {
+	},
+	grid: {
+		shadow: false, 
+		background: '#ffffff', 
+		borderWidth: 1.0
+	},
+	highlighter: {
     	show: true,
    		sizeAdjust: 7.5,
 		tooltipLocation: 'n',
 		useAxesFormatters: true,
 		xAxisFormatString: '%m-%Y',
-  	},
-  	cursor: {
-   		show: false
-  	},
-  	series:[{color:'#3286F0', fillAlpha: 0.5, lineWidth: 2, fillAndStroke: true, fill: true, shadow: false, markerOptions: {size: 1}}]
-	});
+	},
+	cursor: {
+ 		show: false
+	},
+	series:[{
+		color:'#3286F0', 
+		fillAlpha: 0.5, 
+		lineWidth: 2, 
+		fillAndStroke: true, 
+		fill: true, 
+		shadow: false, 
+		markerOptions: {
+			size: 1
+			}
+	}]
+});
+
+$(window).resize(function() {
+	plot1.replot({resetAxes:true});
+});
+
 </script>
+
 </br>
 
 <?php
