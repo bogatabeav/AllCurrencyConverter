@@ -111,12 +111,12 @@ else {
   	axes:{
 	  	xaxis:{
 			labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+			renderer:$.jqplot.DateAxisRenderer, 
+        		tickOptions:{
+				formatString:'%#d-%b-%y %n %#I:%M %p',
+			},        
 			min:'<? echo date("Y-m-d g:iA", $startDate); ?>', 
 			max:'<? echo date("Y-m-d g:iA", $endDate); ?>',
-			renderer:$.jqplot.DateAxisRenderer, 
-        	tickOptions:{
-				formatString:'%#d-%b-%y %n %#I:%M %p',
-			}        
 		},
 		yaxis:{
 			labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
@@ -152,13 +152,12 @@ else {
 	}]
 });
 
-$(window).resize(function() {
-	plot1.replot({resetAxes:true});
+$(window).bind('resize', function(event, ui) {    
+    if (plot1) {
+        plot1.replot();
+    }
 });
-<<<<<<< HEAD
 
-=======
->>>>>>> 6a43fe6ff475315d35fef31f4980078f4c09cfa9
 </script>
 
 </br>
