@@ -33,6 +33,7 @@ if($mobile) {
         <li><a href="mobileTimeline.php">Timeline</a></li>
 <?
 } else {
+<<<<<<< HEAD
 ?>
 <div id="nav">
   	<ul id="nav">
@@ -46,3 +47,18 @@ if($mobile) {
 </div>
 
 <div id="content">
+=======
+?>
+<div id="nav">
+  	<ul id="nav">
+    	<li><a href="index.php">Exchange</a></li>
+    	<li><a href="timeline.php">Timeline</a></li>
+       	<li><a href="test.php">Logic Test Page</a></li>
+<?
+}
+?>
+	</ul>
+</div>
+
+<div id="content">
+>>>>>>> 6a43fe6ff475315d35fef31f4980078f4c09cfa9

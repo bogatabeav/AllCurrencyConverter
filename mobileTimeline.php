@@ -155,7 +155,10 @@ else {
 $(window).resize(function() {
 	plot1.replot({resetAxes:true});
 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a43fe6ff475315d35fef31f4980078f4c09cfa9
 </script>
 
 </br>
