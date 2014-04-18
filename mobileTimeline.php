@@ -1,4 +1,12 @@
 <?php 
+/*
+  mobileTimeline.php
+  Timeline function designed for mobile viewing.
+  Has been scaled down to remove excess clutter
+  and incorporate select dropdown for ease of use.
+  INPUT:  User selects currency from dropdown and timeframe dropdown.
+  OUTPUT:  Displays chart of currency rate over selected time period
+*/
 include("header.php");
 include("Connections/connect.php");
 include("lib/functions.php");
@@ -9,9 +17,9 @@ include("lib/functions.php");
 
 <h1>Timeline Chart</h1>
 <form method="post" action="mobileTimeline.php" >
-  <label for="currChart">Select Currency</label></br>
-  <select name="currChart" id="currChart">
-  
+	<fieldset>
+		<label for="currChart">Select Currency</label></br>
+		<select name="currChart" id="currChart">
 <?php
 $currencies = getAllCurrencies($con);
 
@@ -23,22 +31,26 @@ foreach($currencies as $value) {
 	}	
 }
 ?>
-
-  </select>
-  </br></br>
-<label for="timePeriod">Select Time Period</label></br>
-<select name="timePeriod" id="timePeriod">
-	<option value="24" <? echo ($_POST['timePeriod'] == 24 ? ' selected' : ''); ?>>1 Day</option>
-    <option value="48" <? echo ($_POST['timePeriod'] == 48 ? ' selected' : ''); ?>>2 Days</option>
-    <option value="168" <? echo ($_POST['timePeriod'] == 168 ? ' selected' : ''); ?>>1 Week</option>
-    <option value="336" <? echo ($_POST['timePeriod'] == 336 ? ' selected' : ''); ?>>2 Weeks</option>
-    <option value="720" <? echo ($_POST['timePeriod'] == 720 ? ' selected' : ''); ?>>1 Month</option>
-</select></br></br>
-  <input type="submit" value="Submit" />
+  		</select>
+  		</br>
+        </br>
+		<label for="timePeriod">Select Time Period</label></br>
+		<select name="timePeriod" id="timePeriod">
+			<option value="24" <? echo ($_POST['timePeriod'] == 24 ? ' selected' : ''); ?>>1 Day</option>
+    		<option value="48" <? echo ($_POST['timePeriod'] == 48 ? ' selected' : ''); ?>>2 Days</option>
+    		<option value="168" <? echo ($_POST['timePeriod'] == 168 ? ' selected' : ''); ?>>1 Week</option>
+    		<option value="336" <? echo ($_POST['timePeriod'] == 336 ? ' selected' : ''); ?>>2 Weeks</option>
+    		<option value="720" <? echo ($_POST['timePeriod'] == 720 ? ' selected' : ''); ?>>1 Month</option>
+		</select>
+        </br>
+        </br>
+  		<input type="submit" value="Submit" />
+	</fieldset>
 </form></br>
 <div id="chartdiv" ></div>
 
 <?php
+// variables for charting x-axis limits
 $endDate = date_create();
 $endDate = date_timestamp_get($endDate);
 $startDate = $endDate - ($_POST['timePeriod']*3600);
@@ -60,7 +72,14 @@ if(!$_POST['timePeriod']>0) {
 <script type="text/javascript" src="scripts/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
 <script type="text/javascript" src="scripts/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
 <script type="text/javascript" src="scripts/plugins/jqplot.dateAxisRenderer.min.js"></script>
+
 <script>
+/*
+ * There should be no CSS styling of the jqPlot script below.  
+ * All styling is done with the API.  Options are found at
+ * http://www.jqplot.com/docs/files/jqPlotOptions-txt.html
+ * Be forewarned, thar be dragons here
+*/
 var history = <? 
 echo "[";
 $count = count($history)-1;
@@ -76,7 +95,7 @@ foreach($history as $value) {
 } 
 echo "]";?>;
 
-$.jqplot('chartdiv',  [history],
+var plot1 = $.jqplot('chartdiv',  [history],
 {<?php 
 if($_POST['timePeriod']>0) {
 	echo "title: {text: '".$currency[1]." against US Dollar', show: true},";}
@@ -91,7 +110,6 @@ else {
     },
   	axes:{
 	  	xaxis:{
-
 			labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
 			min:'<? echo date("Y-m-d g:iA", $startDate); ?>', 
 			max:'<? echo date("Y-m-d g:iA", $endDate); ?>',
@@ -133,7 +151,13 @@ else {
 		markerOptions: {size: 1}
 	}]
 });
+
+$(window).resize(function() {
+	plot1.replot({resetAxes:true});
+});
+
 </script>
+
 </br>
 
 <?php
