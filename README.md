@@ -56,3 +56,6 @@ To Install
 
 Usage Instructions
 ---------------------
+1. Open your browser and enter the url of your host site, for a demo, go to http://http://www.allcurrencyconverter.info
+
+2. 
