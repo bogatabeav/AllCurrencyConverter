@@ -24,24 +24,17 @@ include('lib/userAgent.php');
 <div id="header">
 	<h1>Header Div</h1>
 </div>
-<?
-if($mobile) {
-?> 
 <div id="nav">
 	<ul id="nav">
     	<li><a href="index.php">Exchange</a></li>
-        <li><a href="mobileTimeline.php">Timeline</a></li>
 <?
+if($mobile) {
+	echo "<li><a href=\"mobileTimeline.php\">Timeline</a></li>";
 } else {
-?>
-<div id="nav">
-  	<ul id="nav">
-    	<li><a href="index.php">Exchange</a></li>
-    	<li><a href="timeline.php">Timeline</a></li>
-       	<li><a href="test.php">Logic Test Page</a></li>
-<?
+	echo "<li><a href=\"timeline.php\">Timeline</a></li>";
 }
 ?>
+       	<li><a href="test.php">Logic Test Page</a></li>
 	</ul>
 </div>
 
