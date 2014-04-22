@@ -82,7 +82,7 @@ Usage Instructions
 
 4. Select the radio button for the time period your would like to view for that currency. 
 
-*Note: for mobile, choose the time period from the second dropdown.*
+  *Note: for mobile, choose the time period from the second dropdown.*
 
 5. Click the Submit button.
 
