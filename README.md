@@ -42,6 +42,17 @@ To Install
 4. Replace the text in single quotation marks on line 10 to the username used to access your database.
 
  $pass = "xxx";
+ 
+5. Save the config.php file
+
+6. Open the cron/rateUpdate.php file.
+
+7. Repeat steps 2 - 4 for lines 14 - 16.
+
+8. Save the cron/rateUpdate.php file.
+
+9. Your site is now ready! 
+
 
 Usage Instructions
 ---------------------
