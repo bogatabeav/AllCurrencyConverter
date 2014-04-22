@@ -43,7 +43,7 @@ To Install
 
  ```$pass = "xxx";```
  
-5. Save the config.php file
+5. Save the Connections/config.php file
 
 6. Open the cron/rateUpdate.php file.
 
