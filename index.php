@@ -47,9 +47,9 @@ foreach($currencies as $value) {
 	}	
 }
 ?>
-  		</select>
+  		</select>  
   		</br>
-        </br>
+        </br>  
   		<input type="submit" value="Submit" />
   </fieldset>
 </form>
