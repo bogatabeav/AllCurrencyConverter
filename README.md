@@ -3,7 +3,7 @@ All Currency Converter Users Guide
  
 To Install 
 ---------------------
-** Adding Your Files Onto the Server **
+**Adding Your Files Onto the Server**
 
 1. Begin by adding all files and folders to the public_html folder of your server.
 
@@ -11,7 +11,7 @@ To Install
 
 3. Set the permissions of cron/rateUpdate.php and Connections/config.php to 644.
 
-** Creating Your Database **
+**Creating Your Database**
 
 1. Open the SQL.sql file in a text editor.
 
@@ -27,7 +27,7 @@ To Install
 
 6. Your database has now been created.
 
-** Configuring Your Connection **
+**Configuring Your Connection**
 
 1. Open config.php in a text editor.
 
