@@ -57,6 +57,7 @@ To Install
 Usage Instructions
 ---------------------
 **Currency Converter**
+
 1. Open your browser and enter the url of your host site, for a demo, go to http://www.allcurrencyconverter.info
 
 2. You're automatically taken to the Currency Converter page; otherwise, choose the Exchange link in the navigation bar.
@@ -72,6 +73,7 @@ Usage Instructions
 7. The converted amount will be displayed beneath the Submit button.
 
 **Currency Timeline**
+
 1. Open your browser and enter the url of your host site, for a demo, go to http://www.allcurrencyconverter.info
 
 2. Click the Timeline link in the navigation bar.
@@ -79,6 +81,7 @@ Usage Instructions
 3. Select the currency you want to view from the dropdown menu.
 
 4. Select the radio button for the time period your would like to view for that currency. 
+
 *Note: for mobile, choose the time period from the second dropdown.*
 
 5. Click the Submit button.
