@@ -21,7 +21,7 @@ To Install
  
 3. Copy all of the text from the SQL.sql file.
 
-4. Open your MySQL editor (like phpMyAdmin) and open the SQL tab.
+4. Open your MySQL editor (like phpMyAdmin) and select the SQL tab.
 
 5. Paste the contents of the SQL.sql file into the textarea and press GO.
 
