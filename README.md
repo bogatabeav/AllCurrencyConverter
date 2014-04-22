@@ -29,7 +29,7 @@ To Install
 
 **Configuring Your Connection**
 
-1. Open config.php in a text editor.
+1. Open Connections/config.php in a text editor.
 
 2. Replace the text in single quotation marks on line 8 to the previously chosen database name.
 
