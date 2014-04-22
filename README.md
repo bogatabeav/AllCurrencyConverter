@@ -17,7 +17,7 @@ To Install
 
 2. Replace the text in single quotation marks on line 20 to a database name of your choosing:
 
- -- Database: `enter database name here`
+ -- Database: \`enter database name here\`
  
 3. Copy all of the text from the SQL.sql file.
 
