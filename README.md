@@ -56,6 +56,31 @@ To Install
 
 Usage Instructions
 ---------------------
-1. Open your browser and enter the url of your host site, for a demo, go to http://http://www.allcurrencyconverter.info
+**Currency Converter**
+1. Open your browser and enter the url of your host site, for a demo, go to http://www.allcurrencyconverter.info
 
-2. 
+2. You're automatically taken to the Currency Converter page; otherwise, choose the Exchange link in the navigation bar.
+
+3. Enter the amount of original currency you would like to be converted.
+
+4. Select the original currency from the first dropdown menu.
+
+5. Select the new currency that you would like to convert to from the second dropdown menu.
+
+6. Click the Submit button.
+
+7. The converted amount will be displayed beneath the Submit button.
+
+**Currency Timeline**
+1. Open your browser and enter the url of your host site, for a demo, go to http://www.allcurrencyconverter.info
+
+2. Click the Timeline link in the navigation bar.
+
+3. Select the currency you want to view from the dropdown menu.
+
+4. Select the radio button for the time period your would like to view for that currency. 
+*Note: for mobile, choose the time period from the second dropdown.*
+
+5. Click the Submit button.
+
+6. The timeline chart will be displayed below the Submit button. 
