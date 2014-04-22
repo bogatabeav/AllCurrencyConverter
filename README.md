@@ -17,7 +17,7 @@ To Install
 
 2. Replace the text in single quotation marks on line 20 to a database name of your choosing:
 
- -- Database: \`enter database name here\`
+ '''-- Database: \`enter database name here\`'''
  
 3. Copy all of the text from the SQL.sql file.
 
@@ -33,15 +33,15 @@ To Install
 
 2. Replace the text in single quotation marks on line 8 to the previously chosen database name.
 
- $db = "xxx";
+ '''$db = "xxx";'''
  
 3. Replace the text in single quotation marks on line 9 to the username used to access your database.
 
- $user = "xxx";
+ '''$user = "xxx";'''
  
 4. Replace the text in single quotation marks on line 10 to the username used to access your database.
 
- $pass = "xxx";
+ '''$pass = "xxx";'''
  
 5. Save the config.php file
 
