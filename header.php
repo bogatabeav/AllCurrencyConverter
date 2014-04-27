@@ -34,7 +34,6 @@ if($mobile) {
 	echo "<li><a href=\"timeline.php\">Timeline</a></li>";
 }
 ?>
-       	<li><a href="test.php">Logic Test Page</a></li>
 	</ul>
 </div>
 
