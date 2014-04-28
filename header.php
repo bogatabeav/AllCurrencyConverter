@@ -1,5 +1,6 @@
 <?
 include('lib/userAgent.php');
+date_default_timezone_set("America/New_York");
 ?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
@@ -15,10 +16,11 @@ include('lib/userAgent.php');
 
 <link href="css/normalize.css" rel="stylesheet" type="text/css">
 <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+
 <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
 
-<link rel="stylesheet" type="text/css" media="all" href="TemplateTemp/style.css">
-<link rel="stylesheet" type="text/css" media="all" href="TemplateTemp/responsive.css">
+<link rel="stylesheet" type="text/css" media="all" href="Template/style.css">
+<link rel="stylesheet" type="text/css" media="all" href="Template/responsive.css">
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -30,7 +32,7 @@ include('lib/userAgent.php');
 <div id="header">
 	<h1>Header Div</h1>
 </div>
-<div id="nav">
+
 	<ul id="nav">
     	<li><a href="index.php">Exchange</a></li>
 <?
@@ -41,6 +43,6 @@ if($mobile) {
 }
 ?>
 	</ul>
-</div>
+
 
 <div id="content">
