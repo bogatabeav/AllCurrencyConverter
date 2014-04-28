@@ -5,8 +5,8 @@
 */
 
 $host = "localhost";
-$db = "xxx";
-$user = "xxx";
-$pass = "xxx";
+$db = "test";
+$user = "root";
+$pass = "mrc4476net";
 
 ?>
