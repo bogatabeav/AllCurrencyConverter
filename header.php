@@ -20,6 +20,7 @@ include('lib/userAgent.php');
 <![endif]-->
 </head>
 <body>
+<section id="container">
 <div class="gridContainer clearfix">
 <div id="header">
 	<h1>Header Div</h1>
