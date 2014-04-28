@@ -17,8 +17,8 @@ include('lib/userAgent.php');
 <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
 <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
 
-<link rel="stylesheet" type="text/css" media="all" href="css/style.css">
-<link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
+<link rel="stylesheet" type="text/css" media="all" href="TemplateTemp/style.css">
+<link rel="stylesheet" type="text/css" media="all" href="TemplateTemp/responsive.css">
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
