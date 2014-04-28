@@ -1,5 +1,4 @@
 <?
-include('lib/userAgent.php');
 date_default_timezone_set("America/New_York");
 ?>
 <!doctype html>
@@ -16,27 +15,24 @@ date_default_timezone_set("America/New_York");
 
 <link href="css/normalize.css" rel="stylesheet" type="text/css">
 <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
-
 <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
 
-<link rel="stylesheet" type="text/css" media="all" href="Template/style.css">
-<link rel="stylesheet" type="text/css" media="all" href="Template/responsive.css">
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 </head>
+
 <body>
 <section id="container">
-
 <div class="gridContainer clearfix">
+
 <div id="header">
 	<h1>Header Div</h1>
 </div>
 
 	<ul id="nav">
     	<li><a href="index.php">Exchange</a></li>
-		<li><a href="ResponsiveTimeline.php">Timeline</a></li>
+		<li><a href="timeline.php">Timeline</a></li>
 	</ul>
-
-
+    
 <div id="content">

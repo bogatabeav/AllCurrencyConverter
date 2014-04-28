@@ -9,9 +9,6 @@ include("header.php");
 include("Connections/connect.php");
 include("lib/functions.php");
 ?>
-<!--[if lt IE 9]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]--> 
-<link rel="stylesheet" type="text/css" href="css/jquery.jqplot.css" />
-
 <h1>Timeline Chart</h1>
 <form method="post" action="timeline.php" >
 	<fieldset>
@@ -52,118 +49,68 @@ $endDate = date_create();
 $endDate = floor(date_timestamp_get($endDate)/3600)*3600;
 $startDate = $endDate - ($_POST['timePeriod']*3600);
 
-if(!$_POST['timePeriod']>0) {
+if(!$_POST['timePeriod']>0) { 
 	echo "Please select a time period.";
 } else {
 	$history = getNumRates($con, $_POST['currChart'], $startDate);
 	$currency = getCurrency($con, $_POST['currChart']);
 	$min = 10000;
 	$max = 0;
+	
 ?>
 
-<script type="text/javascript" src="scripts/jquery.min.js"></script> 
-<script type="text/javascript" src="scripts/jquery.jqplot.min.js"></script>
-<script type="text/javascript" src="scripts/plugins/jqplot.cursor.min.js"></script>
-<script type="text/javascript" src="scripts/plugins/jqplot.highlighter.min.js"></script>
-<script type="text/javascript" src="scripts/plugins/jqplot.canvasTextRenderer.min.js"></script>
-<script type="text/javascript" src="scripts/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
-<script type="text/javascript" src="scripts/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
-<script type="text/javascript" src="scripts/plugins/jqplot.dateAxisRenderer.min.js"></script>
-
-<script>
-/*
- * There should be no CSS styling of the jqPlot script below.  
- * All styling is done with the API.  Options are found at
- * http://www.jqplot.com/docs/files/jqPlotOptions-txt.html
- * Be forewarned, thar be dragons here
-*/
-var history = <? 
-echo "[";
-$count = count($history)-1;
+<script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      title:{
+      text: "<?=$_POST['currChart']?> against US Dollar"
+      },
+	  <?
 foreach($history as $value) {
-
-	// Sets Y-Axis min/max of chart 
 	if($value[2]>$max){$max = $value[2];}
 	if($value[2]<$min){$min = $value[2];}
+}
+	  ?>
+	   axisX:{
+        interval: 3,
+        intervalType: "day",
+      },
+	  axisY:{
+		  includeZero: false,
+		  minimum: <? echo $min < $max ? $min : ($min - $min/10); ?>,
+		  maximum: <? echo $min < $max ? $max : ($max + $max/10); ?>
+     },
+       data: [
+      {
+        type: "line",
 
+        dataPoints: [
+        <?
+foreach($history as $value) {
 	
-	if($count == 0) {
-		echo "['".date('Y-m-d g:iA',strtotime($value[3]))."',".$value[2]."]";
-	} else {
-		echo "['".date('Y-m-d g:iA',strtotime($value[3]))."',".$value[2]."],";
-	}
-	$count--;
-} 
-echo "]";?>;
+	if($value[2]>$max){$max = $value[2];}
+	if($value[2]<$min){$min = $value[2];}
+	
+	$tempDate = $value[3];
+	$rate = $value[2];
+	?>
+        { x: new Date(<?=date('Y',strtotime($tempDate))?>, <?=(date('m',strtotime($tempDate))-1)?>, <?=date('d',strtotime($tempDate))?>, <?=date('H',strtotime($tempDate))?>), y: <? echo $rate?> },
+        <?
+        } //end while loop
+        ?>
+        ]
+      }
+      ]
+    });
 
-$.jqplot('chartdiv',  [history],
-{<?php 
-if($_POST['timePeriod']>0) {
-	echo "title: {text: '".$currency[2]." Timeline (".$currency[1].")', show: true},";
-} else {
-	echo "title: {text: '', show: true,},";
-}?>
-	axesDefaults: {
-  		tickOptions: {
- 		angle: -30,
- 		fontSize: '8pt'
-    	}
-	},
-	axes:{
-		xaxis:{
-			labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
-			min:'<? echo date("Y-m-d g:iA", $startDate); ?>', 
-			max:'<? echo date("Y-m-d g:iA", $endDate); ?>',
-			renderer:$.jqplot.DateAxisRenderer, 
-			tickOptions:{
-				formatString:'%#d-%b-%y\n%#I:%M %p',
-			}        
-		},
-		yaxis:{
-			label: 'Conversion Rate to US Dollar',
-			labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
-			min:<? echo $min < $max ? $min : ($min - $min/10); ?>, 
-			max:<? echo $min < $max ? $max : ($max + $max/10); ?>,
-			tickOptions:{
-       			formatString:'%.3f'
-			}
-		}
-	},
-	grid: {
-		shadow: false, 
-		background: '#ffffff', 
-		borderWidth: 1.0
-	},
-	highlighter: {
-    	show: true,
-   		sizeAdjust: 7.5,
-		tooltipLocation: 'n',
-		useAxesFormatters: true,
-		xAxisFormatString: '%m-%Y',
-	},
-	cursor: {
- 		show: false
-	},
-	series:[{
-		color:'#3286F0', 
-		fillAlpha: 0.5, 
-		lineWidth: 2, 
-		fillAndStroke: true, 
-		fill: true, 
-		shadow: false, 
-		markerOptions: {
-			size: 1
-			}
-	}]
-});
-
-$(window).resize(function() {
-	plot1.replot({resetAxes:true});
-});
-
-</script>
-
-</br>
+    chart.render();
+  }
+  </script>
+ <script type="text/javascript" src="scripts/canvasjs.min.js"></script></head>
+<body>
+  <div id="chartContainer" style="height: 300px; width: 100%;">
+  </div>
 
 <?php
 }
