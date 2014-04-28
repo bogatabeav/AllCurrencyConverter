@@ -15,9 +15,9 @@ To Install
 
 1. Open the SQL.sql file in a text editor.
 
-2. Replace the text in single quotation marks on line 20 to a database name of your choosing:
+2. Replace the xxx text on line 10 to a database name of your choosing:
 
- ```-- Database: `enter database name here````
+ ```CREATE DATABASE xxx;```
  
 3. Copy all of the text from the SQL.sql file.
 
@@ -31,15 +31,15 @@ To Install
 
 1. Open Connections/config.php in a text editor.
 
-2. Replace the text in single quotation marks on line 8 to the previously chosen database name.
+2. Replace xxx text in single quotation marks on line 8 to the previously chosen database name.
 
  ```$db = "xxx";```
  
-3. Replace the text in single quotation marks on line 9 to the username used to access your database.
+3. Replace xxx text in single quotation marks on line 9 to the username used to access your database.
 
  ```$user = "xxx";```
  
-4. Replace the text in single quotation marks on line 10 to the username used to access your database.
+4. Replace xxx text in single quotation marks on line 10 to the username used to access your database.
 
  ```$pass = "xxx";```
  
