@@ -35,13 +35,7 @@ date_default_timezone_set("America/New_York");
 
 	<ul id="nav">
     	<li><a href="index.php">Exchange</a></li>
-<?
-if($mobile) {
-	echo "<li><a href=\"mobileTimeline.php\">Timeline</a></li>";
-} else {
-	echo "<li><a href=\"timeline.php\">Timeline</a></li>";
-}
-?>
+		<li><a href="ResponsiveTimeline.php">Timeline</a></li>
 	</ul>
 
 
