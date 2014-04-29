@@ -63,44 +63,47 @@ if(!$_POST['timePeriod']>0) {
 ?>
 <script type="text/javascript">
 window.onload = function () {
-    var chart = new CanvasJS.Chart("chartContainer",
-    {
-      	title:{
-      	text: "<?=$_POST['currChart']?> against US Dollar"
-      	},
+	var chart = new CanvasJS.Chart("chartContainer",
+	{
+		title:
+		{
+			text: "<?=$_POST['currChart']?> against US Dollar"
+		},
 	  <?
 foreach($history as $value) {
 	if($value[2]>$max){$max = $value[2];}
 	if($value[2]<$min){$min = $value[2];}
 }
 	  ?>
-		axisX:{  
-           	valueFormatString: "DD MMM",
-			interlacedColor: "#F0F8FF" 
-      	},
-	  	axisY:{
-		  	includeZero: false,
-		 	 minimum: <? echo $min < $max ? $min : ($min - $min/10); ?>,
-		 	 maximum: <? echo $min < $max ? $max : ($max + $max/10); ?>,
-			 interval: <?=($max-$min)/4?>
-     	},
+	  	axisX:
+		{
+			valueFormatString: "DD MMM",
+			interlacedColor: "#F0F8FF"
+		},
+		axisY:
+		{
+			includeZero: false,
+			minimum: <? echo $min < $max ? $min : ($min - $min/10); ?>,
+			maximum: <? echo $min < $max ? $max : ($max + $max/10); ?>,
+			interval: <?=($max-$min)/4?>
+		},
        	data: [
       	{
-        type: "line",
-		toolTipContent: "Date: {x}<br/>Time: {time}:00<br/>Rate: {y}", 
-        dataPoints: [
+			type: "line",
+			toolTipContent: "Date: {x}<br/>Time: {time}:00<br/>Rate: {y}", 
+			dataPoints: [
 <?
 foreach($history as $value) {
 	
 	$tempDate = $value[3];
 	$rate = $value[2];
 ?>
-        { x: new Date(<?=date('Y',strtotime($tempDate))?>, <?=(date('m',strtotime($tempDate))-1)?>, <?=date('d',strtotime($tempDate))?>, <?=date('H',strtotime($tempDate))?>), y: <? echo $rate?>, time: <?=date('H',strtotime($tempDate))?>},
+        	{ x: new Date(<?=date('Y',strtotime($tempDate))?>, <?=(date('m',strtotime($tempDate))-1)?>, <?=date('d',strtotime($tempDate))?>, <?=date('H',strtotime($tempDate))?>), y: <? echo $rate?>, time: <?=date('H',strtotime($tempDate))?>},
         <?
         } //end while loop
         ?>
-        ]
-  	}
+        	]
+  		}
   	]
 });
 
