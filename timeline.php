@@ -87,8 +87,8 @@ foreach($history as $value) {
 			maximum: <? echo $min < $max ? $max : ($max + $max/10); ?>,
 			interval: <?=($max-$min)/4?>
 		},
-       	data: [
-      	{
+		data: [
+		{
 			type: "line",
 			toolTipContent: "Date: {x}<br/>Time: {time}:00<br/>Rate: {y}", 
 			dataPoints: [
@@ -98,7 +98,7 @@ foreach($history as $value) {
 	$tempDate = $value[3];
 	$rate = $value[2];
 ?>
-        	{ x: new Date(<?=date('Y',strtotime($tempDate))?>, <?=(date('m',strtotime($tempDate))-1)?>, <?=date('d',strtotime($tempDate))?>, <?=date('H',strtotime($tempDate))?>), y: <? echo $rate?>, time: <?=date('H',strtotime($tempDate))?>},
+				{ x: new Date(<?=date('Y',strtotime($tempDate))?>, <?=(date('m',strtotime($tempDate))-1)?>, <?=date('d',strtotime($tempDate))?>, <?=date('H',strtotime($tempDate))?>), y: <? echo $rate?>, time: <?=date('H',strtotime($tempDate))?>},
         <?
         } //end while loop
         ?>
