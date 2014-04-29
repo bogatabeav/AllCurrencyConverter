@@ -36,17 +36,6 @@ body { margin: 0; font-size: 13px; line-height: 1.231; }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
-/* 
- * Remove text-shadow in selection highlight: h5bp.com/i
- * These selection declarations have to be separate
- * Also: hot pink! (or customize the background color to match your design)
- */
-
-/* Dreamweaver: uncomment these if you do want to customize the selection highlight
- *::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
- *::selection { background: #fe57a1; color: #fff; text-shadow: none; }
- */
-
 /* =============================================================================
    Links
    ========================================================================== */
@@ -58,7 +47,6 @@ a:focus { outline: thin dotted; }
 
 /* Improve readability when focused and hovered in all browsers: h5bp.com/h */
 a:hover, a:active { outline: 0; }
-
 
 /* =============================================================================
    Typography
@@ -94,7 +82,6 @@ sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: b
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
-
 /* =============================================================================
    Lists
    ========================================================================== */
@@ -103,31 +90,19 @@ ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
 dd { margin: 0 0 0 40px; }
 nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
 
-
 /* =============================================================================
    Embedded content
    ========================================================================== */
 
-/*
- * 1. Improve image quality when scaled in IE7: h5bp.com/d
- * 2. Remove the gap between images and borders on image containers: h5bp.com/e 
- */
-
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 
-/*
- * Correct overflow not hidden in IE9 
- */
-
 svg:not(:root) { overflow: hidden; }
-
 
 /* =============================================================================
    Figures
    ========================================================================== */
 
 figure { margin: 0; }
-
 
 /* =============================================================================
    Forms
@@ -207,26 +182,6 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
 table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
 
-
-/* ==|== primary styles =====================================================
-   Author: 
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
    ========================================================================== */
@@ -251,7 +206,6 @@ td { vertical-align: top; }
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-
 
 /* ==|== print styles =======================================================
    Print styles.
