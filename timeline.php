@@ -31,7 +31,7 @@ foreach($currencies as $value) {
     </br>
     <label for="timePeriod">Select Time Period</label>
     </br>
-    <input type="radio" name="timePeriod" value="24" <? if($_POST['timePeriod'] == 24) {echo " checked";}?> />
+    <input type="radio" name="timePeriod" value="24" <? if($_POST['timePeriod'] == 24 || $_POST['timePeriod'] == NULL) {echo " checked";}?> />
     1 Day
     <input type="radio" name="timePeriod" value="48"<? if($_POST['timePeriod'] == 48) {echo " checked";}?> />
     2 Days
