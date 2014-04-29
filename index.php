@@ -25,7 +25,7 @@ include("lib/functions.php");
 $currencies = getAllCurrencies($con);
 
 foreach($currencies as $value) {
-	if($_POST['currencyA']==$value[1] || ($_POST['currencyA']==NULL && $_POST['currencyA']=="USD")) {
+	if($_POST['currencyA']==$value[1] || ($_POST['currencyA']==NULL && $value[1]=="USD")) {
 		echo "\t\t\t<option value=\"" .$value[1]. "\" selected>" .$value[2]. " (" .$value[1]. ")</option>\n";
 	} else {
 		echo "\t\t\t<option value=\"" .$value[1]. "\">" . $value[2] . " (" .$value[1]. ")</option>\n";
