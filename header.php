@@ -29,10 +29,10 @@ date_default_timezone_set("America/New_York");
 <div id="header">
 	<h1>Header Div</h1>
 </div>
-
+<div id="nav">
 	<ul id="nav">
     	<li><a href="index.php">Exchange</a></li>
 		<li><a href="timeline.php">Timeline</a></li>
 	</ul>
-    
+</div>
 <div id="content">
