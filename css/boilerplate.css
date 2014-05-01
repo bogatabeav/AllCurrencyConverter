@@ -234,9 +234,13 @@ html { margin: 0; padding: 0; }
 
 body { 
 	height: 101%; 
-	font-size: 62.5%; 
-	font-family: "Trebuchet MS", Arial, Tahoma, sans-serif; 
-	color: #333; 
+	/*font-size: 62.5%; */
+	font-size: 8px;
+	line-height: 1.6em;
+	/*font-family: "Trebuchet MS", Arial, Tahoma, sans-serif; */
+	font-family: BentonSansRE,Verdana,sans-serif;
+	/*color: #333;*/ 
+	color: black;
 	background: #fff url('../images/body-bg.jpg') 0px 0px repeat; 
 	padding-top: 10px; 
 }

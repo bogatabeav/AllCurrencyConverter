@@ -1,6 +1,6 @@
 </div>
   	<div id="footer">
-  		<p>Footer Div</p>
+  		<img src="images/currency_footer.jpg">
 	</div>
 </div>
 </section>

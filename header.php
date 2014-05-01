@@ -27,7 +27,7 @@ date_default_timezone_set("America/New_York");
 <div class="gridContainer clearfix">
 
 <div id="header">
-	<h1>Header Div</h1>
+	<h1><img src="images/currency_banner.jpg" / ></h1>
 </div>
 <div id="nav">
 	<ul id="nav">

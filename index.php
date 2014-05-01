@@ -17,13 +17,13 @@ include("lib/functions.php");
   		<input type="text" name="amount" maxlength="10" <? if($_POST['amount']>0) {echo "value=\"" . $_POST['amount']."\"";}?> />
   		</br>
         </br>
-  		<label for="currencyA">Select Starting Currency</label>
-        </br>
+  		<!--label for="currencyA">Select Starting Currency</label-->
+        
   		<select name="currencyA" id="currencyA" >
 <?php
 // see lib/functions.php for getCurrencies() info
 $currencies = getAllCurrencies($con);
-
+echo "<option value=''>Please select a source currency...</option>";
 foreach($currencies as $value) {
 	if($_POST['currencyA']==$value[1] || ($_POST['currencyA']==NULL && $value[1]=="USD")) {
 		echo "\t\t\t<option value=\"" .$value[1]. "\" selected>" .$value[2]. " (" .$value[1]. ")</option>\n";
@@ -33,12 +33,14 @@ foreach($currencies as $value) {
 }
 ?>
   		</select>
-  		</br>
-        </br>
-  		<label for="currencyB">Select New Currency</label>
-        </br>
+  		&nbsp;&nbsp;
+  		<img src="images/transfer.png">
+  		
+  		<!--label for="currencyB">Select New Currency</label>-->
+        
   		<select name="currencyB" id="currencyB">
 <?php
+echo "<option value=''>Please select a destination currecny...</option>";
 foreach($currencies as $value) {
 	if($_POST['currencyB']==$value[1]) {
 		echo "\t\t\t<option value=\"" .$value[1]. "\" selected>" .$value[2]. " (" .$value[1]. ")</option>\n";
@@ -65,8 +67,8 @@ $amount = trim($_POST['amount']);
  
 if($amount!=NULL && is_numeric($amount) && $amount>0) { 
 	// for successful input    
-	echo number_format($amount)." " .$name1[2]. "s equal " 
-		.number_format(round((1/$rate1[2]*$rate2[2]*$amount), 3)). " " .$name2[2]. "s</br>";
+	echo "<h3>".number_format($amount)." " .$name1[2]. "s equal " 
+		.number_format(round((1/$rate1[2]*$rate2[2]*$amount), 3)). " " .$name2[2]. "s</h3></br>";
 } else if($amount!= NULL && is_numeric($amount)) {
 	echo  "You've entered a number outside the allowable range.  Please enter a positive numeric amount.";
 } else if ($amount!= NULL && !is_numeric($amount)) {
