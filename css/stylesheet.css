@@ -44,6 +44,7 @@ img, object, embed, video {
 }
 #nav {
 clear: both;
+
 	float: left;
 	margin-left: 0;
 	width: 100%;
@@ -146,3 +147,5 @@ clear: both;
 	display: block;
 }
 }
+
+
