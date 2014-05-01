@@ -67,8 +67,8 @@ $amount = trim($_POST['amount']);
  
 if($amount!=NULL && is_numeric($amount) && $amount>0) { 
 	// for successful input    
-	echo "<h3>".number_format($amount)." " .$name1[2]. "s equal " 
-		.number_format(round((1/$rate1[2]*$rate2[2]*$amount), 3)). " " .$name2[2]. "s</h3></br>";
+	echo number_format($amount)." " .$name1[2]. "s equal " 
+		.number_format(round((1/$rate1[2]*$rate2[2]*$amount), 3)). " " .$name2[2]. " ";
 } else if($amount!= NULL && is_numeric($amount)) {
 	echo  "You've entered a number outside the allowable range.  Please enter a positive numeric amount.";
 } else if ($amount!= NULL && !is_numeric($amount)) {
