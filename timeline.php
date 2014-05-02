@@ -58,7 +58,7 @@ $endDate = floor(date_timestamp_get($endDate)/3600)*3600;
 $startDate = $endDate - ($_POST['timePeriod']*3600);
 
 if(!$_POST['timePeriod']>0) { 
-	echo "<div id=\"result\"><p>Please select a time period.</p></div>";
+	echo "<div id=\"result\"><p>Please select a currency and a time period.</p></div>";
 } else {
 	$history = getNumRates($con, $_POST['currChart'], $startDate);
 	$currency = getCurrency($con, $_POST['currChart']);
