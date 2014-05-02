@@ -31,9 +31,9 @@ date_default_timezone_set("America/New_York");
 </div>
 <div id="nav">
 	<ul id="nav">
-    	<li><a href="index.php">Exchange</a></li>
-		<li><a href="timeline.php">Timeline</a></li>
-        <li><a href="about.php">About</a></li>
+    	<li><a href="index.php">EXCHANGE</a></li>
+		<li><a href="timeline.php">TIMELINE</a></li>
+        <li><a href="about.php">ABOUT</a></li>
 	</ul>
 </div>
 <div id="content">
