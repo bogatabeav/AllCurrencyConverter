@@ -9,13 +9,15 @@ include("header.php");
 include("Connections/connect.php");
 include("lib/functions.php");
 ?>
+
 <h1>Timeline Chart</h1>
 <form method="post" action="timeline.php" >
   <fieldset>
     <label for="currChart">Select Currency</label>
     </br>
     <select name="currChart" id="currChart">
-      <?php
+      
+<?php
 $currencies = getAllCurrencies($con);
 
 foreach($currencies as $value) {
@@ -26,6 +28,7 @@ foreach($currencies as $value) {
 	}	
 }
 ?>
+
     </select>
     </br>
     </br>
@@ -47,6 +50,7 @@ foreach($currencies as $value) {
 </form>
 </br>
 <div id="chartdiv" ></div>
+
 <?php
 // variables for charting x-axis limits
 $endDate = date_create();
@@ -54,31 +58,28 @@ $endDate = floor(date_timestamp_get($endDate)/3600)*3600;
 $startDate = $endDate - ($_POST['timePeriod']*3600);
 
 if(!$_POST['timePeriod']>0) { 
-	echo "Please select a time period.";
+	echo "<div id=\"result\"><p>Please select a time period.</p></div>";
 } else {
 	$history = getNumRates($con, $_POST['currChart'], $startDate);
 	$currency = getCurrency($con, $_POST['currChart']);
 	$min = 10000;
 	$max = 0;
 ?>
+
 <script type="text/javascript">
 window.onload = function () {
 	var chart = new CanvasJS.Chart("chartContainer",
 	{
-		title:
-		{
-			text: "<?=$_POST['currChart']?> against US Dollar"
-		},
+		title:{text: "<?=$_POST['currChart']?> against US Dollar"},
 	  <?
 foreach($history as $value) {
 	if($value[2]>$max){$max = $value[2];}
 	if($value[2]<$min){$min = $value[2];}
 }
 	  ?>
-	  	axisX:
-		{
+	  	axisX:{
 			valueFormatString: "DD MMM",
-			interlacedColor: "#F0F8FF"
+			interlacedColor: "#e3f7fc"
 		},
 		axisY:
 		{
@@ -114,6 +115,7 @@ chart.render();
 </head>
 <body>
 <div id="chartContainer" style="height: 300px; width: 100%;"> </div>
+
 <?php
 }
 include("Connections/close.php");
