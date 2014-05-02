@@ -13,9 +13,9 @@ date_default_timezone_set("America/New_York");
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>All Currency Converter</title>
 
-<link href="css/normalize.css" rel="stylesheet" type="text/css">
-<link href="css/boilerplate.css" rel="stylesheet" type="text/css">
-<link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="css/format.css" rel="stylesheet" type="text/css">
+<link href="css/design.css" rel="stylesheet" type="text/css">
 
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -27,12 +27,13 @@ date_default_timezone_set("America/New_York");
 <div class="gridContainer clearfix">
 
 <div id="header">
-	<h1><img src="images/currency_banner.jpg" / ></h1>
+	<img src="images/currency_banner.jpg" / >
 </div>
 <div id="nav">
 	<ul id="nav">
     	<li><a href="index.php">Exchange</a></li>
 		<li><a href="timeline.php">Timeline</a></li>
+        <li><a href="about.php">About</a></li>
 	</ul>
 </div>
 <div id="content">
