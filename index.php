@@ -11,6 +11,7 @@ include("lib/functions.php");
 ?>
 
 <h1>Exchange Conversion</h1>
+<p><i><center>Converts any major currency amount to another currency, based on the current rate.</center></i></p> 
 <form method="post" action="index.php" >
   <fieldset>
     <label for="amount">Enter Amount</label>
