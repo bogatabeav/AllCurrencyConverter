@@ -12,15 +12,16 @@ include("lib/functions.php");
 
 <h1>Exchange Conversion</h1>
 <form method="post" action="index.php" >
-	<fieldset>
-  		<label for="amount">Enter Amount</label><br/>
-  		<input type="text" name="amount" maxlength="10" <? if($_POST['amount']>0) {echo "value=\"" . $_POST['amount']."\"";}?> />
-  		<br/>
-        <br/>
-  		<label for="currencyA">Select Starting Currency</label>
-        <br/>
-  		<select name="currencyA" id="currencyA" >
-
+  <fieldset>
+    <label for="amount">Enter Amount</label>
+    <br/>
+    <input type="text" name="amount" maxlength="10" <? if($_POST['amount']>0) {echo "value=\"" . $_POST['amount']."\"";}?> />
+    <br/>
+    <br/>
+    <label for="currencyA">Select Starting Currency</label>
+    <br/>
+    <select name="currencyA" id="currencyA" >
+      
 <?php
 // see lib/functions.php for getCurrencies() info
 $currencies = getAllCurrencies($con);
@@ -33,14 +34,13 @@ foreach($currencies as $value) {
 	}	
 }
 ?>
-
-  		</select>
-  		<br/>
-        <br/>
-  		<label for="currencyB">Select New Currency</label>
-        <br/>
-  		<select name="currencyB" id="currencyB">
-
+    </select>
+    <br/>
+    <br/>
+    <label for="currencyB">Select New Currency</label>
+    <br/>
+    <select name="currencyB" id="currencyB">
+      
 <?php
 foreach($currencies as $value) {
 	if($_POST['currencyB']==$value[1]) {
@@ -51,14 +51,15 @@ foreach($currencies as $value) {
 }
 ?>
 
-  		</select>
-  		<br/>
-        <br/>
-  		<input type="submit" value="Submit" />
+    </select>
+    <br/>
+    <br/>
+    <input type="submit" value="Submit" />
   </fieldset>
 </form>
 <br/>
 <div id="result">
+
 <?php
 // functions for database requests (see functions.php for more info)
 $rate1 = getRate($con, $_POST['currencyA']);
@@ -81,7 +82,6 @@ if($amount!=NULL && is_numeric($amount) && $amount>0) {
 	// for NULL value (default)
 	echo "<p>Please enter a positive amount in the above text box and select applicable currencies.</p>";
 }
-
 echo "</div><br/>";
 include("Connections/close.php");
 include("footer.php");

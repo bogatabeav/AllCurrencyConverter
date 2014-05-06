@@ -30,7 +30,7 @@ date_default_timezone_set("America/New_York");
 	<img src="images/currency_banner.jpg" / >
 </div>
 <div id="nav">
-	<ul id="nav">
+	<ul class="nav">
     	<li><a href="index.php">EXCHANGE</a></li>
 		<li><a href="timeline.php">TIMELINE</a></li>
         <li><a href="about.php">ABOUT</a></li>
