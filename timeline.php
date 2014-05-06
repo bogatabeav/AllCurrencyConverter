@@ -11,6 +11,7 @@ include("lib/functions.php");
 ?>
 
 <h1>Timeline Chart</h1>
+<p><i><center>Displays a history chart of the selected currency's value against the US Dollar.</center></i></p> 
 <form method="post" action="timeline.php" >
   <fieldset>
     <label for="currChart">Select Currency</label>
